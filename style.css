@@ -1,0 +1,260 @@
+:root {
+    --pink: #f3b6c6;
+    --beige: #f6f1ea;
+    --sage: #b7c9b9;
+    --text: #3b3b3b;
+    --paper: #fffdfb;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    background: linear-gradient(120deg, var(--beige), #ffffff);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* ===== 2D FLOATING SHAPES ===== */
+.background-shapes::before,
+.background-shapes::after {
+    content: "";
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    opacity: 0.18;
+    z-index: -1;
+}
+
+.background-shapes::before {
+    background: var(--pink);
+    top: -60px;
+    left: -60px;
+}
+
+.background-shapes::after {
+    background: var(--sage);
+    bottom: -60px;
+    right: -60px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 920px;
+    margin: auto;
+    background: var(--paper);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    color: #c76b86;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 1rem;
+}
+
+/* ===== INTRO ===== */
+.intro {
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+}
+
+.soft-note {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ===== CARDS – 2D PAPER STYLE ===== */
+.card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 20px;
+
+    /* 2D paper look */
+    border: 2px solid rgba(0,0,0,0.04);
+    box-shadow:
+        0 10px 0 rgba(0,0,0,0.03),
+        0 20px 30px rgba(0,0,0,0.06);
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 6px 0 rgba(0,0,0,0.04),
+        0 26px 40px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #a55a71;
+}
+
+.card p, .card li {
+    font-size: 0.95rem;
+}
+
+/* ===== PRICE ===== */
+.price {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* ===== LINKS (PHONE FRIENDLY) ===== */
+a {
+    color: #b45c74;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== LISTS ===== */
+ul {
+    padding-left: 20px;
+}
+
+.colors li {
+    list-style: "🎨 ";
+}
+
+/* ===== TAGS – STICKER STYLE ===== */
+.tag {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.tag.pink { background: var(--pink); }
+.tag.sage { background: var(--sage); }
+.tag.beige { background: #d8cfc4; }
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 36px;
+}
+
+.love {
+    font-size: 1.2rem;
+    color: #c76b86;
+}
+
+/* ===== ANIMATIONS (LIGHT FOR MOBILE) ===== */
+.fade-down {
+    animation: fadeDown 0.9s ease forwards;
+}
+
+.fade-up {
+    animation: fadeUp 0.9s ease forwards;
+}
+
+.slide-in {
+    opacity: 0;
+    animation: slideIn 0.8s ease forwards;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================
+   📱 PRODUCT PREVIEW – RESPONSIVE IMAGE
+===================================== */
+
+.product-preview {
+    margin-top: 14px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px;
+    border: 2px dashed rgba(0,0,0,0.06);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+/* IMAGE – MOBILE FIRST */
+.product-preview img {
+    display: block;
+    width: 100%;          /* 🔑 fully responsive */
+    height: auto;         /* keep aspect ratio */
+    max-height: 240px;    /* safe height on phones */
+    object-fit: contain;  /* no cropping */
+    margin: 0 auto;
+    border-radius: 14px;
+    background: #f8f8f8;
+    padding: 10px;
+}
+
+/* TEXT */
+.preview-text {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #555;
+}
+
+.preview-text span {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* ===== TABLET & DESKTOP ===== */
+@media (min-width: 768px) {
+    .product-preview {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-preview img {
+        width: 45%;
+        max-height: 200px;
+    }
+
+    .preview-text {
+        width: 55%;
+        text-align: left;
+        font-size: 0.95rem;
+    }
+}
